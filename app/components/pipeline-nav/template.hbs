@@ -1,5 +1,5 @@
-{{#if pipelineDescription}}
-  <span>{{pipelineDescription}}</span>
+{{#if pipeline.description}}
+  <span>{{pipeline.description}}</span>
 {{/if}}
 {{#bs-nav type="pills" as |nav|}}
   {{#if pipeline.childPipelines}}

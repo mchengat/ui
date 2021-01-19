@@ -1,6 +1,7 @@
 import { alias } from '@ember/object/computed';
 import { computed } from '@ember/object';
 import DS from 'ember-data';
+import { htmlSafe } from '@ember/string';
 
 export default DS.Model.extend({
   admins: DS.attr(),
@@ -36,5 +37,21 @@ export default DS.Model.extend({
       return branch;
     }
   }),
-  hubUrl: alias('scmRepo.url')
+  hubUrl: alias('scmRepo.url'),
+  description: computed('annotations', {
+    get() {
+      let description;
+
+      if (this.annotations) {
+        if (this.annotations['screwdriver.cd/pipelineDescription']) {
+          description = this.annotations['screwdriver.cd/pipelineDescription'].replace(
+            /\n/g,
+            '<br>'
+          );
+        }
+      }
+
+      return htmlSafe(description) || null;
+    }
+  })
 });

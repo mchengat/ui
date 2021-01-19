@@ -18,7 +18,8 @@ const mockPipeline = EmberObject.create({
     rootDir: '',
     url: 'https://github.com/screwdriver-cd/ui/tree/master'
   },
-  branch: 'master'
+  branch: 'master',
+  description: null
 });
 const lastEventInfo = EmberObject.create({
   startTime: '--/--/----',

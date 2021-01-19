@@ -55,7 +55,8 @@ module('Integration | Component | sd pipeline nav', function(hooks) {
       appId: 'foo/bar',
       branch: 'master',
       scmContext: 'github:github.com',
-      annotations: { 'screwdriver.cd/pipelineDescription': 'description' }
+      annotations: { 'screwdriver.cd/pipelineDescription': 'description' },
+      description: 'description'
     });
 
     this.set('pipelineMock', pipeline);
